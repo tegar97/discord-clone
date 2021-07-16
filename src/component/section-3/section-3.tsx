@@ -3,7 +3,7 @@ import "./../section-1/section-1";
 function Section3() {
   return (
     <div>
-      <div className="grid grid-cols-3 py-20 px-44">
+      <div className="grid grid-cols-1 px-10 py-32 lg:py-20 lg:grid-cols-3 lg:px-44">
         <img
           src="/assets/images/i-3.svg"
           className="col-span-2"

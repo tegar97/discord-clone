@@ -13,7 +13,7 @@ function Hero() {
             and hang out more often.
           </div>
         </div>
-        <div className="flex flex-col w-2/3 mt-10 lg:justify-center lg:flex-col lg:w-1/3 xl:flex-row xl:w-full">
+        <div className="flex flex-col w-2/3 mt-10 lg:justify-center lg:flex-row lg:w-1/3 xl:flex-row xl:w-full">
           <button className="py-4 text-lg font-bold text-gray-800 bg-white rounded-full lg:text-xl xl:px-7 ">
             Download For Windows
           </button>

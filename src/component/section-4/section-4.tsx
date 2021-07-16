@@ -4,8 +4,8 @@ import "./../section-2/section-2.scss";
 import "./section-4.scss";
 function Section4() {
   return (
-    <div className="container grid grid-cols-1 py-20 px-44">
-      <div className="flex flex-col text-center ">
+    <div className="container grid grid-cols-1 px-5 py-10 lg:py-20 lg:px-44">
+      <div className="flex flex-col lg:text-center ">
         <h2 className="font-bold text-gray-800 text-main">
           RELIABLE TECH FOR STAYING CLOSE
         </h2>

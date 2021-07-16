@@ -13,12 +13,12 @@
     }
 
     @media (min-width : 1024px) {
-        height: 120vh;
+        height: 40rem;
 
     
     }
     @media(min-width: 1280px) {
-        height: 80vh;
+        height: 40rem;
 
     }
 
@@ -110,7 +110,6 @@
 .image2{
     position: absolute;
     bottom: 0;
-    z-index: 0;
     height: auto;
     width: auto;
     max-width: none;
@@ -128,11 +127,15 @@
     @media (min-width : 1024px) {
         display: block;
         margin-left: -800px;
+        z-index: 0;
+
 
     }
     @media(min-width : 1280px) {
         display: block;
-        margin-left: -500px;
+        margin-left: -680px;
+        z-index: 0;
+
     }
     
 }
