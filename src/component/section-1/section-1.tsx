@@ -3,10 +3,10 @@ import "./section1.scss";
 function Section1() {
   return (
     <div>
-      <div className="grid grid-cols-3 py-20 px-44">
+      <div className="grid grid-cols-1 px-10 py-20 lg:grid-cols-3 lg:px-44 md:grid-cols-2 md:px-20 md:items-center">
         <img
           src="/assets/images/i-1.svg"
-          className="col-span-2"
+          className="lg:col-span-2"
           alt=" Create an invite-only place where you belong"
         />
         <div className="flex flex-col ">

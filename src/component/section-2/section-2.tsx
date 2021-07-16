@@ -4,8 +4,8 @@ import "./section-2.scss";
 function Section2() {
   return (
     <div className="container">
-      <div className="grid grid-cols-2 py-20 px-44">
-        <div className="flex flex-col w-2/3 ">
+      <div className="grid grid-cols-1 px-10 lg:grid-cols-2 lg:py-20 lg:px-44">
+        <div className="flex flex-col lg:w-2/3 ">
           <h2 className="font-bold text-gray-800 text-main">
             Where hanging out is easy
           </h2>
