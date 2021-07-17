@@ -4,12 +4,19 @@ import "./App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Navbar from "./component/navbar/navbar";
+import Login from "./pages/Login/Login";
+import ChannelsMe from "./pages/channels-me/channels-me";
 
 function App() {
   return (
     <Router>
-      <Navbar />
       <Switch>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/channels/@me">
+          <ChannelsMe />
+        </Route>
         <Route path="/">
           <Home />
         </Route>
