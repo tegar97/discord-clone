@@ -23,24 +23,7 @@
     margin-top: 1rem;
 overflow: hidden;
 }
-::-webkit-scrollbar {
-    width: 20px;
-  }
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #202225; 
-    border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #202225; 
-    border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #202225; 
-  }
+
 .sidebar-friendlist__body__header_text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
@@ -73,4 +56,75 @@ overflow: hidden;
     overflow-y: scroll;
     padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
     box-sizing: content-box; /* So the width will be 100% + 17px */
+
+    &::-webkit-scrollbar {
+      width: 20px;
+    }
+  &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px #202225; 
+      border-radius: 10px;
+    }
+     
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #202225; 
+      border-radius: 10px;
+    }
+    
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #202225; 
+    }
+}
+
+.myProfile{
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 100%;
+  
+}
+
+.profileName{
+  font-size: 0.9rem;
+  color: #ffff;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  line-height: 13px;
+  white-space: nowrap;
+}
+
+.profileId{
+  font-size: 12px;
+  color: #b9bbbe;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  line-height: 13px;
+  white-space: nowrap;
+
+}
+
+.icon{
+  font-size: 17px;
+  color: #b9bbbe
+
+}
+
+.iconButton  {
+  line-height: 0;
+  width: 28px;
+  height: 28px;
+ 
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-radius: 4px;
+  position: relative;
+  color:#b9bbbe
+
+
 }
