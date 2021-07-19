@@ -1,0 +1,22 @@
+.ChatGroupHeader{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid #303237;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.searchInput{
+    background-color: #202225;
+    padding-left: .3rem;
+    padding-right: .3rem;
+    font-size: 1rem;
+    outline: none;
+    color: #ffff;
+
+    &:focus {
+        width: 14rem;
+
+    }
+  
+}
