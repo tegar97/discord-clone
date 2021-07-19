@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import AddFriends from "../add-friends/add-friends";
+import NoUserOnline from "../no-user-online/no-user-online";
 import "./dasboard-friend.scss";
 function DasboardFriend() {
+  const [menu, setMenu] = useState("onlineUser");
   return (
     <div className="overflow-hidden dasboard-friend">
       <div className="justify-between p-3 dasboard-header">
@@ -29,7 +32,15 @@ function DasboardFriend() {
             <div className="ml-4 borderHeader ">&nbsp;</div>
           </div>
           <div className="grid grid-cols-5 gap-1 ml-5">
-            <button className="font-bold text-white ActiveMenu">Online</button>
+            <button
+              className={`font-bold     ${
+                menu === "onlineUser" && "ActiveMenu "
+              }`}
+              style={{ color: menu === "onlineUser" ? "#fff " : "#b1b3b6" }}
+              onClick={() => setMenu("onlineUser")}
+            >
+              Online
+            </button>
             <button className="font-bold text-white nonActiveMenu">All</button>
             <button className="font-bold text-white nonActiveMenu">
               Pending
@@ -37,7 +48,10 @@ function DasboardFriend() {
             <button className="font-bold text-white nonActiveMenu">
               Blocked
             </button>
-            <button className="px-2 font-bold text-white headerMenuButton">
+            <button
+              className="px-2 font-bold text-white headerMenuButton"
+              onClick={() => setMenu("addFriends")}
+            >
               Add Friend
             </button>
           </div>
@@ -97,13 +111,9 @@ function DasboardFriend() {
         </div>
       </div>
       <div className="grid h-full grid-cols-6 ">
-        <div className="flex flex-col items-center justify-center col-span-4 -mt-56">
-          <img
-            src="https://discord.com/assets/a12ff54c4c5c03b41006fd96a4709c29.svg"
-            className="imageNoUser"
-          />
-          <span className="nonActiveMenu">There are no online user</span>
-        </div>
+        {menu === "addFriends" && <AddFriends />}
+        {menu === "onlineUser" && <NoUserOnline />}
+
         <div className="w-full h-full col-span-2 p-5 activeUser">
           <h2 className="text-xl font-bold text-white ">Active Now</h2>
           <div className="flex flex-col items-center justify-center mt-5 text-center">

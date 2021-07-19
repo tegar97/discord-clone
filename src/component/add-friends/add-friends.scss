@@ -1,0 +1,21 @@
+.addFriendsInput {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    white-space: pre;
+    background-color: #313339;
+    &::placeholder {
+        color: #717a8b
+        ;
+      }
+    color: #ffff;
+    outline: none;
+    border-radius: 8px;
+
+
+}
+
+.addFriendContainer {
+    border-bottom: 2px solid #303237;
+
+}
