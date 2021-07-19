@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import Navbar from "./component/navbar/navbar";
 import Login from "./pages/Login/Login";
 import ChannelsMe from "./pages/channels-me/channels-me";
+import Channels from "./pages/channels/channels";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         </Route>
         <Route path="/channels/@me">
           <ChannelsMe />
+        </Route>
+        <Route path="/channels/:id/:channelid">
+          <Channels />
         </Route>
         <Route path="/">
           <Home />
