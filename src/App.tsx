@@ -15,6 +15,7 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
+
         <Route path="/channels/@me">
           <ChannelsMe />
         </Route>
