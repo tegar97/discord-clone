@@ -23,3 +23,16 @@ export class RegisterInput implements Partial<Auth>{
 
 
 }
+
+@InputType()
+export class LoginInput implements Partial<Auth>{
+   
+
+    @Field()
+    email : string;
+
+    @Field()
+    password: string;
+
+
+}

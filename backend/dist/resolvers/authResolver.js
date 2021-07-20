@@ -25,6 +25,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthResolver = void 0;
+const validators_1 = require("./../util/validators");
 const Auth_1 = require("./../entities/Auth");
 const typeDef_1 = require("./typeDef");
 const type_graphql_1 = require("type-graphql");
@@ -48,6 +49,10 @@ let AuthResolver = class AuthResolver {
     }
     register({ name, email, password, username }) {
         return __awaiter(this, void 0, void 0, function* () {
+            const { valid, errors } = validators_1.validateRegister(name, email, password, username);
+            if (!valid) {
+                throw new apollo_server_express_1.UserInputError('Errors', { errors });
+            }
             const userCheck = yield Auth_1.AuthModel.findOne({ email });
             if (userCheck) {
                 throw new apollo_server_express_1.UserInputError('Email Sudah Ada Yang Pakai', {
@@ -67,6 +72,26 @@ let AuthResolver = class AuthResolver {
             return Object.assign(Object.assign({}, newUser._doc), { token });
         });
     }
+    login({ email, password }) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const user = yield Auth_1.AuthModel.findOne({ email });
+            const { valid, errors } = validators_1.validateLogin(email, password);
+            if (!valid) {
+                throw new apollo_server_express_1.UserInputError('Errors', { errors });
+            }
+            if (!user) {
+                errors.include = 'User Not Found';
+                throw new apollo_server_express_1.UserInputError('Wrong Crenditials', { errors });
+            }
+            const match = yield bcrypt_1.default.compare(password, user.password);
+            if (!match) {
+                errors.password = 'Wrong Password , Check Again';
+                throw new apollo_server_express_1.UserInputError('Wrong Password ', { errors });
+            }
+            const token = genereteToken(user);
+            return Object.assign(Object.assign({}, user._doc), { token });
+        });
+    }
 };
 __decorate([
     type_graphql_1.Query(() => Boolean),
@@ -81,6 +106,13 @@ __decorate([
     __metadata("design:paramtypes", [typeDef_1.RegisterInput]),
     __metadata("design:returntype", Promise)
 ], AuthResolver.prototype, "register", null);
+__decorate([
+    type_graphql_1.Mutation(() => Auth_1.Auth),
+    __param(0, type_graphql_1.Arg("data")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [typeDef_1.LoginInput]),
+    __metadata("design:returntype", Promise)
+], AuthResolver.prototype, "login", null);
 AuthResolver = __decorate([
     type_graphql_1.Resolver()
 ], AuthResolver);
